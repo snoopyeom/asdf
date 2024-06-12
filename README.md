@@ -130,23 +130,58 @@ PyTorch: YOLOv5는 PyTorch 프레임워크를 사용합니다. PyTorch는 [PyTor
 Output Directory를 Yolov5-data-labels 로 맞춰주고 라벨링 작업 진행합니다.
 Labelme를 사용하면 json 파일로 결과물이 저장되어 추후 yolo 형식에 맞는 txt 파일로 변환 시켜줘야 합니다.
 
+---
+
 #### < labelme 설치법 및 사용법 >
+
+![image](https://github.com/snoopyeom/asdf/assets/19545380/c2374f8b-e95e-4b8e-b39f-f5da56b1ff63)
+
 
 ##### Labelme는 이미지에 라벨을 달기 위한 오픈 소스 도구로, 주로 객체 탐지와 이미지 분할을 위한 데이터셋 준비에 사용됩니다. Labelme 설치 방법은 다음과 같습니다:
 
 1. Python 및 pip 설치
-Labelme는 Python 기반의 도구이므로 Python이 설치되어 있어야 합니다. [Python 설치하기](https://www.python.org/downloads/)
+Labelme는 Python 기반의 도구이므로 Python이 설치되어 있어야하며, Python3.0 이상만 사용가능합니다. [Python 설치하기](https://www.python.org/downloads/)
 
 2. Labelme 설치
-Labelme는 pip를 사용하여 설치할 수 있습니다. 터미널이나 명령 프롬프트를 열고 다음 명령어를 입력하세요.
+Labelme는 pip를 사용하여 설치할 수 있습니다. 터미널이나 명령 프롬프트를 열고 다음 명령어들을 실행합니다.
 ```
     pip install labelme
+    pip install pyqt5
+    pip install lxml
 ```
+
 3. 설치 확인
 설치가 완료되면 labelme 명령어를 입력하여 Labelme가 제대로 설치되었는지 확인합니다.
 ```
     labelme
 ```
+
+4. labelme 화면
+
+기능들을 살펴보면 이미지와 디렉토리(폴더)를 열어 라벨링할 수 있고 라벨링 종류도 다각형, 사각형, 원형, 선 ,점 등 여러가지 형태의 라벨링이 가능한 툴 입니다.
+
+라벨링을 하게 되면 라벨 이름과 description을 남길수 있고 우측에 라벨리스트에 추가가 됩니다. 
+
+기본적으로 라벨링된 데이터는 삭제,복사, 수정이 가능하고 그 외에도 확대 축소, 밝기 조절 등이 가능합니다.
+
+![image](https://github.com/snoopyeom/asdf/assets/19545380/7b791b8c-6ec0-46d1-9b09-49a15e0ea133)
+
+##### 이미지를 불러와서 작업을 수행한다.
+##### Create Polygons를 선택하여 원하는 이미지를 선택하면 라벨이름을 지정한 후 ok를 눌러준다.(단축키: polygons는 Ctrl+N, Rectangle은 Ctrl+R)
+
+![image](https://github.com/snoopyeom/asdf/assets/19545380/a521911b-0b01-4af8-9c1d-d51ef4d603f8)
+
+##### ok를 하면 라인색이 빨간색으로 변하고 Label List에 설정한 vehicle이 입력된다. 
+![image](https://github.com/snoopyeom/asdf/assets/19545380/8a20ac56-0229-4f32-80cc-9929419d7f19)
+
+##### 라벨링을 끝내고 저장하게되면 사진의 위치에 json파일이 생성됩니다.
+
+![image](https://github.com/snoopyeom/asdf/assets/19545380/210ae07b-0254-42cf-86e6-7e8ad46a5abb)
+
+##### 위의 형식은 labelme의 json형식으로 이미지 인식을 위한 학습에서는 위의 데이터를 기존 모델에 맞게 변형 시켜 사용할 수 있습니다.
+
+---
+
 
 #### 3. yaml 파일 생성
 ##### * 위에서 맞춰준 데이터셋 정보를 담고 있는 파일을 생성해줘야 합니다.
@@ -175,7 +210,8 @@ Labelme는 pip를 사용하여 설치할 수 있습니다. 터미널이나 명�
 
 * 나눠준 train, valid set을 각각 txt파일로 만들어준다. 이미지 주소들이 txt 파일에 write 된다.
 
-![image](https://github.com/snoopyeom/prac/assets/19545380/589a8e1b-607d-451b-8659-cf3bebd70a5e)  ![image](https://github.com/snoopyeom/prac/assets/19545380/f0d8d59e-ecaa-4403-ae3a-5ef8060232a0)
+![image](https://github.com/snoopyeom/prac/assets/19545380/589a8e1b-607d-451b-8659-cf3bebd70a5e)  
+![image](https://github.com/snoopyeom/prac/assets/19545380/f0d8d59e-ecaa-4403-ae3a-5ef8060232a0)
 
 * 앞서 만들어준 data.yaml 파일의 train, val 경로를 재설정해줍니다다.
 ![image](https://github.com/snoopyeom/prac/assets/19545380/dfa45622-2757-4d9f-b530-d17cba9f12ef)
