@@ -257,7 +257,6 @@ Labelme는 pip를 사용하여 설치할 수 있습니다. 터미널이나 명�
 * Conf : 신뢰도 값. 0과 1사이의 숫자로, 값을 높이면 더 확실한 객체만 검출됩니다.
 
 ![image](https://github.com/snoopyeom/prac/assets/19545380/8095387b-09b6-4bb2-b3bc-f444bc85144b)
-![image](https://github.com/snoopyeom/prac/assets/19545380/6e8428d5-d975-48e2-801a-d0397e82818f)
 
 * runs/detect/exp에 저장된 결과값 확인
 
